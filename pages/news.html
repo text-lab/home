@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Michelangelo Misuraca | News</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <div class="profile-avatar-mini">
+      <img src="../assets/m_misuraca.png" alt="Profile photo">
+      <!-- <span class="material-symbols-outlined">person</span> -->
+    </div>
+    <a class="nav-brand" href="../index.html">Michelangelo Misuraca</a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html"><span class="material-symbols-outlined">home</span>Home</a></li>
+      <li><a href="research.html"><span class="material-symbols-outlined">science</span>Research</a></li>
+      <li><a href="teaching.html"><span class="material-symbols-outlined">school</span>Teaching</a></li>
+      <li><a href="cv.html"><span class="material-symbols-outlined">book</span>Biosketch</a></li>
+      <li><a href="news.html"><span class="material-symbols-outlined">campaign</span>News</a></li>
+      <li><a href="contact.html"><span class="material-symbols-outlined">mail</span>Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <div class="inner">
+      <h1><span class="material-symbols-outlined">campaign</span> News</h1>
+      <p class="subtitle">Publications, software releases, projects, events and updates</p>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ── News Overview ─────────────────────── -->
+  <section>
+    <p class="section-label"><span class="material-symbols-outlined">newspaper</span>All Updates</p>
+    <h2>News &amp; Updates</h2>
+    <div class="rule-orange"></div>
+
+    <ul class="news-list" id="all-news"></ul>
+
+  </section>
+
+</main>
+
+<!-- ── Footer ─────────────────────────────────── -->
+<footer>
+  <div class="footer-logos">
+    <div class="footer-logos-inner">
+      <a class="footer-logo-item" href="https://www.unisa.it" target="_blank" rel="noopener">
+        <img class="footer-logo-img-u" src="../assets/unisa.png" alt="University Name">
+      </a>
+      <span class="footer-logo-divider" aria-hidden="true"></span>
+      <a class="footer-logo-item" href="https://www.irpps.cnr.it" target="_blank" rel="noopener">
+        <img class="footer-logo-img" src="../assets/irpps.png" alt="CNR-IRPPS">
+      </a>
+      <span class="footer-logo-divider" aria-hidden="true"></span>
+      <a class="footer-logo-item" href="https://www.bibliometrix.org" target="_blank" rel="noopener">
+        <img class="footer-logo-img" src="../assets/ksynth.png" alt="Bibliometrix">
+      </a>
+    </div>
+  </div>
+  <div class="site-footer">
+    <p><a href="mailto:mmisuraca[at]unisa[dot]it">&copy; <span id="year"></span> Michelangelo Misuraca &middot; University of Salerno</a></p>
+  </div>
+</footer>
+
+<script src="../js/news.js"></script>
+<script>const container = document.getElementById("all-news");
+
+const BADGE_COLORS = {
+  Paper: "var(--orange)",
+  Software: "var(--blue)",
+  Project: "#2e7d32",
+  Appointment: "#6d4c41",
+  Award: "#9c6a00",
+  Conference: "#6a4fb3",
+  Teaching: "#00838f"
+};
+
+[...NEWS_ITEMS]
+  .sort((a, b) => new Date(b.sortDate) - new Date(a.sortDate))
+  .forEach(item => {
+
+    const li = document.createElement("li");
+    li.className = "news-page-item";
+
+    const badgeColor =
+      BADGE_COLORS[item.category] || "var(--orange)";
+
+    const linksHtml =
+      Array.isArray(item.links) && item.links.length > 0
+        ? item.links.map(link => `
+            <a href="${link.url}" target="_blank" rel="noopener">
+              <span class="material-symbols-outlined">${link.icon}</span>
+              ${link.label}
+            </a>
+          `).join("")
+        : "";
+
+    li.innerHTML = `
+      <div class="news-page-meta">
+
+        <span class="news-page-date">
+          ${item.date}
+        </span>
+
+        <span class="news-tag"
+              style="background:${badgeColor}">
+          ${item.category}
+        </span>
+
+      </div>
+
+      <div class="news-page-content">
+
+        <span class="news-page-title">
+          ${item.title}
+        </span>
+
+        <p class="news-page-text">
+          ${item.description}
+        </p>
+
+        ${linksHtml ? `
+          <div class="news-page-actions">
+            ${linksHtml}
+          </div>
+        ` : ""}
+
+      </div>
+    `;
+
+    container.appendChild(li);
+  });
+</script>
+
+<script src="../js/main.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+</body>
+</html>
