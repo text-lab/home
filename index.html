@@ -112,6 +112,40 @@
 
 <hr class=rule>
 
+<!-- Research Analytics -->
+<section id="research-intelligence">
+  <p class="section-label"><span class="material-symbols-outlined">analytics</span>Research Analytics</p>
+  <h2>Impact &amp; Scholarly Networks</h2>
+  <div class="rule-orange"></div>
+  <div class="metrics-grid">
+    <div class="metric-card">
+      <span class="material-symbols-outlined">format_quote</span>
+      <div class="metric-value" id="oa-citations">–</div>
+      <div class="metric-label">Citations</div>
+    </div>
+    <div class="metric-card">
+      <span class="material-symbols-outlined">library_books</span>
+      <div class="metric-value" id="oa-works">–</div>
+      <div class="metric-label">Publications</div>
+    </div>
+    <div class="metric-card">
+      <span class="material-symbols-outlined">hub</span>
+      <div class="metric-value" id="oa-coauthors">–</div>
+      <div class="metric-label">Co-authors</div>
+    </div>
+    <div class="metric-card">
+      <span class="material-symbols-outlined">calendar_month</span>
+      <div class="metric-value" id="oa-latest-year">–</div>
+      <div class="metric-label">Latest Year</div>
+    </div>
+  </div>
+  <p class="mt-2 small-note">
+    Data source: <img src="assets/tricon.png" class="custom-icon"> OpenAlex</a>.
+  </p>
+</section>
+
+<hr class="rule">
+
   <!-- News & Updates -->
   <section>
     <p class="section-label"><span class="material-symbols-outlined">campaign</span>Updates</p>
@@ -219,6 +253,7 @@ newsToShow.forEach(item => {
 });
 </script>
 <script src="js/main.js"></script>
+<script src="js/openalex.js"></script>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
 </body>
