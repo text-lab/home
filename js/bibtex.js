@@ -7,8 +7,7 @@
 
 const HOMEPAGE_PUBLICATION_KEYS = [
   '11386_4944136',
-  '11386_4940435',
-  '11386_4936004'
+  '11386_4940435'
 ];
 
 /* ── parser ─────────────────────────────────────────────────── */
@@ -240,7 +239,7 @@ function renderPublications(raw) {
       .filter(Boolean);
 
     if (!homepageEntries.length) {
-      homepageEntries = entries.slice(0, 3);
+      homepageEntries = entries.slice(0, 2);
     }
 
     recentContainer.innerHTML = homepageEntries.map(renderEntry).join('');
