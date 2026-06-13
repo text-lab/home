@@ -55,14 +55,14 @@ async function loadOpenAlexProfile() {
       .map(([name]) => name)
       .join(', ');
 
-    setText('oa-citations', '>' + citations.toLocaleString('en-GB'));
-    setText('oa-works', '>' + worksCount.toLocaleString('en-GB'));
+    setText('oa-citations', citations.toLocaleString('en-GB') + '+');
+    setText('oa-works', worksCount.toLocaleString('en-GB') + '+');
     setText('oa-latest-year', latestYear);
     setText('oa-hindex', hIndex);
-    setText('oa-coauthors', coauthors.size.toLocaleString('en-GB'));
+    setText('oa-coauthors', coauthors.size.toLocaleString('en-GB') + '+');
     setText('oa-topics', topTopics || 'Topics not available');
 
-    setText('stat-works', '>' + worksCount.toLocaleString('en-GB'));
+    setText('stat-works', worksCount.toLocaleString('en-GB') + '+');
 
   } catch (error) {
     console.warn(error);
