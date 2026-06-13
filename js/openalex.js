@@ -54,10 +54,12 @@ async function loadOpenAlexProfile() {
       .join(', ');
 
     setText('oa-citations', citations.toLocaleString('en-GB'));
-    setText('oa-works', worksCount.toLocaleString('en-GB'));
+    setText('oa-works', '>' + worksCount.toLocaleString('en-GB'));
     setText('oa-latest-year', latestYear);
     setText('oa-coauthors', coauthors.size.toLocaleString('en-GB'));
     setText('oa-topics', topTopics || 'Topics not available');
+
+    setText('stat-works', '>' + worksCount.toLocaleString('en-GB'));
 
   } catch (error) {
     console.warn(error);
@@ -67,6 +69,9 @@ async function loadOpenAlexProfile() {
     setText('oa-latest-year', 'Not available');
     setText('oa-coauthors', 'Not available');
     setText('oa-topics', 'OpenAlex data could not be loaded');
+    
+    setText('stat-works', '-');
+    
   }
 }
 
