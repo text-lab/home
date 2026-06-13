@@ -67,7 +67,7 @@ async function loadOpenAlexProfile() {
       .map(([name]) => name)
       .join(', ');
 
-    setText('oa-citations', citations.toLocaleString('en-GB'));
+    setText('oa-citations', '>' + citations.toLocaleString('en-GB'));
     setText('oa-works', '>' + worksCount.toLocaleString('en-GB'));
     setText('oa-latest-year', latestYear);
     setText('oa-hindex', hIndex);
