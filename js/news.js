@@ -10,6 +10,40 @@
 const NEWS_ITEMS = [
 
   // Add new items here
+    
+   {
+    date: "July 2026",
+    sortDate: "2026-07-17",
+    category: "Paper",
+    featured: true,
+    title: "New article published in <em>Journal of Information Science</em>",
+    shortText: "New article published in <em>Journal of Information Science</em> on social representations in digital arenas.",
+    description: "ThemeScope: a quantitative thematic analysis for depicting social representations in digital arenas.",
+    links: [
+    {
+      label: "Article",
+      icon: "open_in_new",
+      url: "https://journals.sagepub.com/doi/10.1177/01655515261454276"
+    }
+    ]
+   },
+   
+   {
+    date: "July 2026",
+    sortDate: "2026-07-16",
+    category: "Paper",
+    featured: true,
+    title: "New article published in <em>Sustainability</em>",
+    shortText: "New article published in <em>Sustainability</em> on computational hierarchical evocation analysis.",
+    description: "A Computational Pipeline for Hierarchical Evocation Analysis of Renewable Energy in Online Climate Discourse.",
+    links: [
+    {
+      label: "Article",
+      icon: "open_in_new",
+      url: "https://www.mdpi.com/2071-1050/18/14/7295"
+    }
+    ]
+   },
    
    {
     date: "June 2026",

@@ -20,8 +20,6 @@ async function loadOpenAlexProfile() {
     const worksData = await worksRes.json();
     const works = worksData.results || [];
 
-    const hIndex = author.summary_stats?.h_index ?? 'N/A';
-
     const citations = author.cited_by_count ?? 0;
     const worksCount = author.works_count ?? works.length;
 
@@ -55,14 +53,11 @@ async function loadOpenAlexProfile() {
       .map(([name]) => name)
       .join(', ');
 
-    setText('oa-citations', citations.toLocaleString('en-GB') + '+');
-    setText('oa-works', worksCount.toLocaleString('en-GB') + '+');
+    setText('oa-citations', citations.toLocaleString('en-GB'));
+    setText('oa-works', worksCount.toLocaleString('en-GB'));
     setText('oa-latest-year', latestYear);
-    setText('oa-hindex', hIndex);
-    setText('oa-coauthors', coauthors.size.toLocaleString('en-GB') + '+');
+    setText('oa-coauthors', coauthors.size.toLocaleString('en-GB'));
     setText('oa-topics', topTopics || 'Topics not available');
-
-    setText('stat-works', worksCount.toLocaleString('en-GB') + '+');
 
   } catch (error) {
     console.warn(error);
@@ -70,12 +65,8 @@ async function loadOpenAlexProfile() {
     setText('oa-citations', 'Not available');
     setText('oa-works', 'Not available');
     setText('oa-latest-year', 'Not available');
-    setText('oa-hindex', 'Not available');
     setText('oa-coauthors', 'Not available');
     setText('oa-topics', 'OpenAlex data could not be loaded');
-    
-    setText('stat-works', '-');
-    
   }
 }
 
